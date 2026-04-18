@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Nightmare | Servidor RP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #07070b;
+            --text-color: #ffffff;
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ea;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: radial-gradient(circle at 50% 0%, #1a0b2e 0%, transparent 50%);
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .logo-container img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 15px var(--neon-pink)) drop-shadow(0 0 30px var(--neon-blue));
+        }
+
+        h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            border-bottom: 2px solid var(--neon-pink);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        details {
+            background-color: rgba(0, 243, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            margin-bottom: 15px;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        summary {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--neon-blue);
+            cursor: pointer;
+            padding: 10px;
+            list-style: none;
+            transition: 0.3s;
+        }
+
+        summary:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--neon-blue);
+        }
+
+        .normativa-texto {
+            padding: 15px;
+            border-top: 1px dashed var(--neon-blue);
+            margin-top: 10px;
+            line-height: 1.6;
+            white-space: pre-wrap; 
+        }
+
+        .subtitulo-rosa {
+            color: var(--neon-pink);
+            font-weight: bold;
+            display: block;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 0, 234, 0.4);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .subtitulo-celeste {
+            color: var(--neon-blue);
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 243, 255, 0.4);
+        }
+
+        .normativa-texto .subtitulo-rosa:first-child {
+            margin-top: 0;
+        }
+
+        .whitelist-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-neon {
+            background: transparent;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border: 2px solid var(--neon-pink);
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 0, 234, 0.3), inset 0 0 10px rgba(255, 0, 234, 0.3);
+            display: inline-block; 
+        }
+
+        .btn-neon:hover {
+            background: var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+            color: var(--bg-color);
+        }
+
+        .btn-blue {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3), inset 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .btn-blue:hover {
+            background: var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+            color: var(--bg-color);
+        }
+
+        .oculto {
+            display: none !important;
+        }
+
+        /* =========================================================
+           SISTEMA DE PESTAÑAS PRINCIPALES Y SECCIÓN INICIO 
+           ========================================================= */
+        
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+        }
+
+        .tab-btn:hover {
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .tab-btn.active {
+            background: var(--neon-blue);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .tab-btn:nth-child(2), .tab-btn:nth-child(4) { 
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 5px rgba(255, 0, 234, 0.2);
+        }
+        .tab-btn:nth-child(2):hover, .tab-btn:nth-child(4):hover {
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+        .tab-btn:nth-child(2).active, .tab-btn:nth-child(4).active {
+            background: var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .inicio-info {
+            text-align: center;
+            background-color: rgba(0, 243, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .inicio-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .botones-inicio {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .redes-sociales {
+            margin-top: 30px;
+            border-top: 2px solid var(--neon-pink); 
+            padding-top: 20px;
+        }
+
+        .redes-sociales a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .redes-sociales a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* =========================================================
+           SISTEMA DE SUB-PESTAÑAS (TIENDA / DONACIONES)
+           ========================================================= */
+
+        .sub-tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .sub-tab-btn {
+            background: rgba(0, 243, 255, 0.05);
+            color: #ccc;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .sub-tab-btn:hover {
+            color: #fff;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .sub-tab-btn.active {
+            background: var(--neon-blue);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--neon-blue);
+            border-color: var(--neon-blue);
+        }
+
+        /* Variante rosa para sub-pestañas premium */
+        .sub-tab-btn.premium {
+            border-color: var(--neon-pink);
+            background: rgba(255, 0, 234, 0.05);
+        }
+        .sub-tab-btn.premium:hover {
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        .sub-tab-btn.premium.active {
+            background: var(--neon-pink);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--neon-pink);
+            border-color: var(--neon-pink);
+        }
+
+        .sub-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .sub-tab-content.active {
+            display: block;
+        }
+
+        /* ACÁ ESTÁ LA MODIFICACIÓN PARA QUE SE VEAN UNO AL LADO DEL OTRO Y NO SE ESTIREN */
+        .tienda-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .producto-card {
+            width: 260px; /* Ancho fijo para que no se deformen */
+            background-color: rgba(0, 243, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .producto-card h3 {
+            color: var(--neon-pink);
+            margin-top: 0;
+            font-size: 1.3rem;
+            text-shadow: none;
+            margin-bottom: 10px;
+        }
+
+        .producto-desc {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .producto-precio {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .card-premium {
+            border-color: var(--neon-pink);
+            background-color: rgba(255, 0, 234, 0.05);
+            box-shadow: inset 0 0 10px rgba(255, 0, 234, 0.1);
+        }
+        .card-premium:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 234, 0.3);
+        }
+        .card-premium .producto-img {
+            border-color: rgba(255, 0, 234, 0.3);
+        }
+        .card-premium h3 {
+            color: var(--neon-blue);
+        }
+        .card-premium .producto-precio {
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://media.discordapp.net/attachments/1475602329909592154/1484731888198221844/BN2.png?ex=69d706d3&is=69d5b553&hm=518354431300e385d07dfa9bee1d4e4eadf47b41f03b8d190bcb076f0cfa28f2&=&format=webp&quality=lossless" alt="Black Nightmare Logo">
+        </div>
+
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="openTab('inicio', this)">🏠 INICIO</button>
+            <button class="tab-btn" onclick="openTab('normativas', this)">📜 NORMATIVAS</button>
+            <button class="tab-btn" onclick="openTab('whitelist', this)">🔒 WHITELIST</button>
+            <button class="tab-btn" onclick="openTab('donaciones', this)">🛒 DONACIONES</button>
+        </nav>
+
+        <section id="inicio" class="tab-content active">
+            <h2>🌃 BIENVENIDO A LA CIUDAD</h2>
+            
+            <div class="inicio-info">
+                <p>
+                    <strong>Black Nightmare RP</strong> es un servidor de Roleplay serio enfocado en brindarte la experiencia definitiva. 🚀 Contamos con una optimización insuperable ⚡, mapeos exclusivos 🗺️ y scripts únicos desarrollados a medida por nuestros programadores de élite 💻.<br><br>
+                    Nos enfocamos en la mejora constante y escuchamos activamente a nuestra comunidad para seguir evolucionando. 🤝 Disfrutá de una economía realista 💵, facciones exclusivas, bandas gratuitas 🔫 y mafias multiskill premium 🕴️. Además, tenemos trabajos interactivos 🛠️ y un entorno visualmente inmersivo, ¡ideal para los que aman sacarse las mejores fotos en la ciudad! 📸✨<br><br>
+                    Unite a nuestra comunidad y escribí tu propia historia. Domina las calles de Los Santos 🏎️💨, convertite en el mejor oficial de la LSPD 🚔 o salvá vidas como el mejor médico de EMS 🚑.<br><br>
+                    <strong>¿Estás listo para adentrarte en tu propia pesadilla? 🌙💀</strong>
+                </p>
+                
+                <div class="botones-inicio">
+                    <a href="https://cfx.re/join/37dv4b" class="btn-neon btn-blue">🎮 JUGAR AHORA</a>
+                    
+                    <a href="https://discord.gg/86fMQGgPTd" class="btn-neon">💬 UNITE AL DISCORD</a>
+                </div>
+
+                <div class="redes-sociales">
+                    <a href="https://www.instagram.com/blacknightmare_rp/?hl=es" target="_blank">Instagram</a>
+                    <a href="https://www.tiktok.com/@blacknightmarerp" target="_blank">TikTok</a>
+                    <a href="https://www.youtube.com/@Blacknightmarerp" target="_blank">YouTube</a>
+                    <a href="https://x.com/BNTeam__" target="_blank">X (Twitter)</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="normativas" class="tab-content">
+            <h2>📜 NORMATIVAS OFICIALES</h2>
+            
+            <details>
+                <summary>▶ Normativa General</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">IN CHARACTER Y OUT OF CHARACTER (IC y OOC)</span>
+Estos dos canales se usan para poder diferenciar y separar las cosas dentro y fuera del personaje. Estos mismos bajo ningún motivo deberán ser mezclados o romperse una vez dentro del juego e interpretando nuestro personaje para así mantener una neutralidad dentro del entorno. 
+
+(IC: Dentro del Personaje, OOC: Fuera del Personaje)
+
+<span class="subtitulo-rosa">COMANDOS IC DE /me y /do</span>
+Ambos comandos son para describir situaciones dentro del rol, que no pueden efectuarse o verse por cuestiones del juego o por falta de animaciones en sí. Sin embargo, hay grandes diferencias entre estos dos comandos.
+
+El comando /me es una acción narrada en primera persona y describe situaciones que no pueden ser efectuadas mediante una animación dentro del juego.
+
+Importante: Si bien las acciones descritas con “/me” son para descripciones puntuales, jamás pueden romper una neutralidad de acción que intente forzar el rol de otras personas.
+
+EJEMPLO: /me se agacha y agarra el control de la televisión.
+
+El /do es una manera de describir nuestro entorno, y siempre al igual que el rol de entorno, debe usarse de una manera neutral y no para nuestro favor; o para forzar el rol de una persona en cuestión.
+
+EJEMPLO: /do se sentiría mareado por agacharse muy rápido.
+
+<span class="subtitulo-rosa">MAL USO DE LOS CANALES</span>
+Dentro del servidor contamos con distintos canales para representar las acciones de nuestro personaje o del propio entorno que nos rodea. Será obligatoria la correcta escritura a través de los canales IC, utilizando el lenguaje predeterminado del servidor, expresándose de manera clara. Cualquier confusión entre canales IC y OOC podrá ser advertida y sancionada.
+
+<span class="subtitulo-rosa">NOMBRES DE PERSONAJES</span>
+No se permitirá personajes con nombres de personas famosas, próceres, actores, terroristas, políticos, o algún tipo de personaje que infrinjan el derecho de autor. En caso de crearse algún personaje bajo este tipo de nombres podrán ser baneados hasta un cambio de nombre o se puede recurrir al CK administrativo
+
+<span class="subtitulo-rosa">ABUSO DE MECANICAS</span>
+El abuso de tipo de mecánica, error del mismo juego para beneficio propio será motivo para sancionar administrativamente.  
+
+<span class="subtitulo-rosa">CAMBIOS DE NOMBRES IC</span>
+Solamente se podrá realizar el cambio de nombre del personaje siempre y cuando hubo un error a la hora de crearlo, en caso de querer cambiarlo correspondería un CK.
+
+<span class="subtitulo-rosa">SALIRSE DE ROL</span>
+El hablar fuera de rol dentro del juego queda PROHIBIDO, debes seguir en cada momento tu RDI. El uso de ciertas frases y/o palabras refiriéndose a algo OOC, no se puede realizar y será sancionado. 
+
+EJEMPLO:
+
+- "Estoy sacando clips"
+- "Te voy a reportar"
+- "Voy a llamar a un staff/diosito" 
+- "Estoy en soporte" 
+
+<span class="subtitulo-rosa">VESTIMENTAS</span>
+Los ciudadanos deberán llevar ropa adecuada a la vida real, ésto quiere decir que no podrás llevar máscaras en ZONAS SEGURAS, tampoco se podrá llevar ropa parecida o semi-militar/militar y chalecos puestos en ZONA SEGURA.
+
+<span class="subtitulo-rosa">ARCHIVOS MODIFICADOS</span>
+Está estrictamente PROHIBIDO el uso de cualquier archivo modificado, mod, cheat, miras (ya sean externas o propias del FiveM) y/o citizens que otorguen ventajas sobre los demás jugadores. 
+
+EJEMPLOS:
+
+- No rola, No-Props, No-Bushes, Damage, No-Recoil, Silent-Aim, Magic Bullets, etc.
+
+El uso de los anteriormente mencionados, conlleva a una sanción PERMANENTE.
+
+<span class="subtitulo-rosa">ACOSO Y/O HOSTIGAMIENTO</span>
+No se tolerará ningún tipo de acoso, incluyendo expresiones racistas, sexistas, comentarios homofóbicos, transfobicos u otro tipo de discursos abusivos en general. 
+Al que se le sorprenda cometiendo esta acción/comentarios será sancionado PERMANENTEMENTE.
+
+<span class="subtitulo-rosa">SOBRECARGA DE INVENTARIO</span>
+La sobrecarga de inventario, significa que no puedes llevar una cantidad excesiva de objetos sin usar un bolso o contenedor adecuado. Ésto aplica para todos y es esencial para mantener el equilibrio y el realismo en el juego. 
+Por ejemplo, un usuario no podría llevar múltiples armas, chalecos o comida. Ésto también aplica para Facciones Ilegales u Facciones Legales cuando lleven armas de alto calibre o el personal médico cuando llevan equipo especializado en terreno.
+
+Para esto se puede utilizar el item de mochila.
+
+<span class="subtitulo-rosa">TOXICIDAD</span>
+No se TOLERARÁ ningún tipo de toxicidad en la comunidad en contra de los usuarios y/o miembros del Staff. 
+
+<span class="subtitulo-rosa">DUPEO</span>
+El DUPEO de objetos/vehículos o cualquier objeto tangible dentro del servidor, está estrictamente PROHIBIDO. y la persona que se le encuentre en dicho hecho realizando este acto será sancionada de manera PERMANENTE y sin derecho a apelar. 
+En caso de saber de que algún usuario esté DUPEANDO o intentando realizar esta acción será obligatorio informar de inmediato a Staff, de lo contrario, se te aplicará la misma sanción.
+
+<span class="subtitulo-rosa">FACCIONES LEGALES</span>
+Está estrictamente PROHIBIDO cometer actos delictivos siendo parte (EMS/LSPD). Deberán respetar su RDI en todo momento.
+
+<span class="subtitulo-rosa">VEHÍCULO DE FACCIONES</span>
+Está estrictamente PROHIBIDO el uso de vehículos de facciones legales para uso personal sin pertenecer a esta u estando fuera de servicio.
+
+<span class="subtitulo-rosa">RECONOCER CIUDADANOS</span>
+No puedes reconocer a la gente por la voz, por la ropa que usan y si se encuentran enmascarados. 
+
+Reconocimiento por vestimenta y máscara. (M/G)
+
+Una persona será "reconocible" tras un acto delictivo si lleva consigo más del 50% del outfit que usó para ese acto. 
+
+Una máscara completa, cubrirá en su totalidad todo tipo de rasgos de tu personaje haciéndolo irreconocible (rasgos faciales, cicatrices, color de ojos, tatuajes faciales, etc.). 
+
+Una máscara parcial (ej; bandana, tapa boca, barbijo) NO te hará irreconocible, ya que la misma no cubre tu rostro en su totalidad, dejando al descubierto pelo, ojos, y otro tipo de rasgos. Sin embargo, SÍ lo hará en el caso que éste tenga también gorra y lentes.
+
+<span class="subtitulo-rosa">MATAR EN SIGILO</span>
+No se podrá matar a otros usuarios con “golpe sigiloso".
+Solo podrá ser utilizado durante un rol de peso por las facciones (LSPD /MAFIAS,BANDAS) 
+
+<span class="subtitulo-rosa">SEGUNDO SLOT DE PJ</span>
+Se le otorgará un segundo slot de personaje a aquellas personas que adquieran uno o que posean un VIP.
+No se puede pertenecer a la misma facción con los dos slots, al igual que no se podrá pertenecer a una organización ilegal con dos PJ.
+No se pueden realizar roles que lleven a beneficio propio de traspaso de información de un PJ a otro. (MG)
+Está totalmente prohibido la herencia de un PJ a otro. (dinero, casas, autos etc.)
+Comentarios IC a OOC.
+
+<span class="subtitulo-rosa">ROL DE VIOLACION</span>
+QUEDA TOTALMENTE PROHIBIDO TODO TIPO DE ROL DE VIOLACIÓN,  quien sea sorprendido realizando este tipo de rol será baneado permanentemente sin derecho a apelación alguna.
+
+<span class="subtitulo-rosa">VENTA</span>
+Está prohibido el intercambio o ventas entre usuarios de adquisiciones mediante VIPS o dinero OOC.  Esto conlleva una sanción PERMANENTE sin derecho a apelación.
+No se podrá intercambiar ningún objeto, auto o casa por dinero OOC entre USUARIOS. El hacer esto conlleva una sanción PERMANENTE.
+
+<span class="subtitulo-rosa">TRASPASO DE PERTENENCIAS</span>
+En caso de realizar un CK a tu PJ, está prohibido el traspaso de cualquier pertenencia adquirida de manera IC a otro jugador. Vehículos, dinero, armas, propiedades u otras cosas. (Recordar que todos los objetos adquiridos mediante VIPs se mantienen, tanto casas, autos entre otros objetos del VIP). Esto conlleva a una sanción PERMANENTE por rol de herencia.
+
+<span class="subtitulo-rosa">CASAS</span>
+Todos los ciudadanos podrán adquirir casas para guardar sus pertenencias. Con dinero IC, se puede comprar un máximo de una casa (1), por medio de un ticket correspondiente de casas. Aquellos que adquieran casas con un VIP o dinero OOC, podrán tener propiedades ilimitadas (sujetas a disponibilidad igualmente).
+
+<span class="subtitulo-rosa">MORIR ES PARTE DEL ROL</span>
+Solamente cuando se trate de un bug comprobable o con evidencia de un antirol, se hará una devolución o se revivirá según corresponda.
+
+<span class="subtitulo-rosa">ROBO A TRABAJADORES</span>
+Está completamente prohibido asaltar o secuestrar como rehén a un EMS en servicio.
+Aquellos que estén de servicio, como mecánicos, basureros, etc.  
+Siempre que estén con su uniforme NO SE LES PODRÁ ASALTAR. Si se encuentran sin su uniforme o vehículos, si podrán ser asaltados. 
+
+<span class="subtitulo-rosa">PATENTES</span>
+No se podrá eliminar/sacar las patentes de los vehículos (Dirigido exclusivamente a Mecánicos), el hacer esto conlleva una sanción y una desvinculación de la facción. 
+
+<span class="subtitulo-rosa">RB (Roll-Back)</span>
+Se entiende como Roll-Back, el realizar nuevamente un rol que por motivos de algún error, antirol, etc. Se debe rehacer nuevamente aquel rol.
+Para solicitar un RB debe suceder algo que interrumpa o afecte el desarrollo correcto del rol. (No se podrá solicitar RB por AA2 o Bug de pared)
+La petición de un RB debe ser presentando ambas partes las pruebas correspondientes.
+Será a criterio de STAFF aprobar o no el RB. Si el RB es aprobado, se solicitará el FairPlay (FP) en todo momento para ambas partes.
+No se podrá solicitar otro RB. (sea el resultado diferente o igual)
+NO se podrá solicitar RB en Zona roja.
+
+<span class="subtitulo-rosa">PUBLICIDAD</span>
+Queda estrictamente PROHIBIDO publicitar otros servidores dentro del juego o en nuestro Discord. A los usuarios que se los encuentre publicitando, ya sea servidores o cualquier cosa ajena al servidor, será desvinculado inmediatamente del servidor.
+
+<span class="subtitulo-rosa">CONCEPTOS DE ROL</span>
+
+<span class="subtitulo-celeste">VALORAR TU VIDA:</span> Siempre deberás valorar la vida de tu personaje como la máxima prioridad, sin importar el rol que se esté llevando a cabo. 
+
+<span class="subtitulo-celeste">ROL DE INTERPRETACIÓN (RDI):</span> El RDI es la interpretación de nuestro personaje de manera IC
+
+<span class="subtitulo-celeste">ROL DE ENTORNO (RDE):</span> El rol de entorno es la parte vital que permite poder desempeñar el rol. Hay que ser neutro en cualquier circunstancia. La ciudad tiene distintos lugares, con distintos entornos los cuales pueden reflejar las consecuencias de nuestros actos de un modo u otro. Hay que ser conscientes de cuáles son las zonas más transitadas de la isla y actuar en consecuencia.
+En caso de no respetar el (RDE) se implica que no estás teniendo en cuenta el entorno que te rodea, ya sea una comisaría, gente caminando por las calles, seguridad personal en ciertas zonas.
+
+<span class="subtitulo-celeste">VEHICLE DEATHMATCH (VDM):</span> Se refiere a la acción de utilizar un vehículo como arma, ya sea chocando o directamente causar la muerte de otro usuario, ya sea evadiendo un rol o por mera diversión.
+
+<span class="subtitulo-celeste">REVENGE  KILL (RK):</span> Se define como la acción de regresar al sitio donde has sido abatido anteriormente (PK) y continuar participando en el tiroteo, con fin de asesinar a quien previamente te asesino.
+
+<span class="subtitulo-celeste">SPAWN KILL (SK):</span> Se refiere a la situación en la que un usuario es abatido por otro al momento de ingresar al servidor o al salir de un lugar.
+
+<span class="subtitulo-celeste">HELICOPTER KILL (HK):</span> Se define como abatir a un usuario utilizando las aspas del helicóptero como arma.
+
+<span class="subtitulo-celeste">META KILL (MK):</span> Se define como la acción de abatir a un usuario, debido a motivos o acciones acontecidas fuera de nuestro personaje (OOC).
+
+<span class="subtitulo-celeste">BUNNY JUMP (BJ):</span> Variante del Power Gaming. Es la acción de saltar repetidamente para ir más rápido o sacar ventaja hacia otro jugadores, lo cual no se puede realizar de manera repetitiva.
+
+<span class="subtitulo-celeste">BUG ABUSE (BA):</span> Se define como sacarle ventaja a un bug que brinde beneficios, como dinero extra, armas, etc.
+
+<span class="subtitulo-celeste">BAD DRIVING (BD):</span> Se define como la conducción de manera temeraria y poco realista, chocando constantemente con objetos y obstáculos, no respetando el rol de entorno correspondiente.
+
+<span class="subtitulo-celeste">CAR JACKED (CJ):</span> Se define como el robo de un vehículo sin ningún rol previo. (Solo presionar la tecla correspondiente y robar el vehículo).
+
+<span class="subtitulo-celeste">NOOB ABUSE (NA):</span> Se refiere a aprovecharse de un usuario sin experiencia en el servidor o en el roleplay, ya sea asaltando o manipulando para que realice acciones que solo benefician a quienes abusan de él o ella. 
+
+<span class="subtitulo-celeste">NULO ROL DE ENTORNO (NRE):</span> Se refiere a cuando no prestas atención o no consideras lo que está ocurriendo a tu alrededor en una zona o lugar en específico.
+
+<span class="subtitulo-celeste">NO ROL DE CHOQUE (NRC):</span> Se define como "No Rolear Choque" y este concepto aplica para todo tipo de vehículo. Al impactar contra algún objeto/infraestructura deberás rolear el choque como tal. 
+
+<span class="subtitulo-celeste">ADMIN ABUSE (AA):</span> Se define como la utilización de comandos/acciones administrativas en beneficio propio o de otros usuarios.
+
+<span class="subtitulo-celeste">COMBAT LOGGING (CL):</span> Desconectarse, desconectar el cable de red o provocar fallos/crasheos en el juego con el propósito de evadir una situación de rol. 
+En el caso de desconexión de urgencia o problema externo mayor, ya sea corte de luz o internet, hay que realizar el aviso por discord minimamente.
+
+<span class="subtitulo-celeste">POWER GAMING (PG):</span> El power gaming es un concepto del rol el cual no te permite realizar acciones que no harías en la vida real o son imposibles de realizar. Queda totalmente prohibido realizar saltos intencionales o ingresar a zonas todoterreno con vehículos no aptos.
+
+<span class="subtitulo-celeste">DEATHMATCH (DM):</span> Consideramos por deathmatch una representación de rol agresivo que implique la muerte y/o agresión sin bases previas que lo justifiquen.
+
+<span class="subtitulo-celeste">METAGAMING (MG):</span> Consideramos metagaming trasladar cualquier tipo de información OOC al terreno IC.
+
+<span class="subtitulo-celeste">PK (Player Kill):</span> Este concepto hace referencia al estado de inconsciencia en el cual entra nuestro personaje. En cuanto nuestro personaje haya sufrido un PK, no podrá acordarse de nada que lo haya llevado hasta esa situación.
+
+<span class="subtitulo-celeste">CK (Character Kill):</span> Muerte total y absoluta del PJ. Empiezas totalmente de cero sin conocer absolutamente a nadie.
+
+<span class="subtitulo-celeste">CK VOLUNTARIO:</span> Se aplica este cuando el personaje muere de forma voluntaria. 
+
+<span class="subtitulo-celeste">CK POLICIAL:</span> Se podrá realizar un CK a cualquier miembro o a la organización completa si hay una investigación detrás.
+
+<span class="subtitulo-celeste">CK FRACCIONARIO:</span> Los líderes de grupos ilegales pueden reservarse el derecho a realizar CK a uno de sus miembros oficiales.
+
+<span class="subtitulo-celeste">CK ADMINISTRATIVO:</span> La administración podrá aprobar/realizar un CK a cualquier personaje el cual considere que está faltando múltiples veces a normativas.
+
+<span class="subtitulo-rosa">INSULTOS FUERA DEL JUGADOR</span>
+Todo tipo de insultos, faltas de respeto o vejaciones de un usuario hacia otro dentro del servidor, será sancionado dependiendo de la gravedad desde el punto de vista de la administración.
+
+<span class="subtitulo-rosa">COMPORTAMIENTO</span>
+Dentro del servidor no se tolerará ningún comportamiento que tenga como referencia al antirol o incentive el DM. Esto incluye comentarios no específicos y específicos.
+
+<span class="subtitulo-rosa">FAIR PLAY</span>
+En el servidor se rechaza completamente cualquier tipo de actitud competitiva, ganadora, ventajosa o realizar ciertas acciones forzadas con el fin de ganar un rol o ganar una ventaja de cualquier índole. Habrá siempre que buscar el balance entre ambos lados.
+
+<span class="subtitulo-rosa">BINDS</span>
+En el servidor no se permite ningún tipo de bindeo que pueda dar una ventaja sobre la otra persona en una situación de rol a la hora de utilizarlo.
+
+<span class="subtitulo-rosa">ACCIONES NO ROLEADAS</span>
+Cualquier situación que no se rolee adecuadamente (una herida grave no roleada por ejemplo) será duramente sancionada. Será OBLIGATORIO que TODO choque deba ser roleado con los /me y /do correspondientes.
+
+<span class="subtitulo-rosa">ZONAS SEGURAS</span>
+Entendemos por zona segura aquel lugar en el cual no se puede ejercer ningún acto de índole delictiva. 
+
+- Comisarías
+
+- Garajes centrales
+
+- Hospitales
+
+- El recinto de cualquier evento
+
+- Sedes de trabajo
+
+- Negocios (Tiendas, Talleres, Clubes, Restaurantes)
+
+- Tiendas de ropa (solo en el interior), excepto las tiendas de robo.
+
+<span class="subtitulo-rosa">ABUSO DE BUGS DENTRO DEL JUEGO</span>
+La explotación de errores dentro del servidor para beneficio del propio jugador será motivo de sanción grave. Existe la obligación de notificar cada bug.
+
+<span class="subtitulo-rosa">EVASION DE UN ROL</span>
+Toda representación de rol debe ser culminada por las partes implicadas. El no estar de acuerdo con una de las partes no es motivo para anular un rol.
+
+<span class="subtitulo-rosa">ROLES AJENOS</span>
+Queda prohibido incluirse como tercero a una situación de rol delictivo activo interfiriendo innecesariamente en este.
+
+<span class="subtitulo-rosa">VERIFICACIÓN DE ROLES PREVIOS</span>
+Para poder gozar de situaciones de rol beneficiosas a largo plazo deberemos tomar pruebas gráficas del rol previo.
+
+<span class="subtitulo-rosa">RETOMAR ROLES</span>
+En caso de que hayamos sufrido una caída o desconexión forzosa, podremos solicitar a la otra parte retomar el rol.
+
+<span class="subtitulo-rosa">BENEFICIOS OOC e IC y VICEVERSA</span>
+Cualquier rol acordado de antemano entre jugadores para percibir un beneficio económico será gravemente sancionado.
+
+<span class="subtitulo-rosa">CALIDAD DEL AUDIO/MICRÓFONO</span>
+Podrá ser sancionado a cualquier usuario con un audio/micrófono inaudible que arruine la experiencia de juego a los demás.
+
+<span class="subtitulo-rosa">AWAY FROM KEYBOARD (AFK)</span>
+Todo aquel usuario que permanezca AFK, será vulnerable de cara al rol de terceros. El estar AFK no está permitido y no te hace inmune ante cualquier interacción.
+
+Todo jugador AFK durante cierto tiempo recibirá un robo de un NPC, en el caso de que se quede afk mucho tiempo y pierda sus items no podrá ser reclamado.
+
+<span class="subtitulo-rosa">MATAR ARRIBA DE UN VEHÍCULO</span>
+Dentro del servidor queda prohibido el disparar a matar arriba de un vehículo, ya sea de piloto o acompañante.
+
+<span class="subtitulo-rosa">UTILIZACIÓN DE ARMAS</span>
+Las armas largas no se podrán utilizar en las cercanías ni dentro de la ciudad. 
+Las armas cortas como pistolas (no deberán ser automaticas) podrán utilizarse con el rol previo adecuado o que la policia se encuentre en DEFCON 1 (ROJA).
+
+<span class="subtitulo-rosa">ALERTAS POLICIALES (DEFCON)</span>
+SIN ALERTAS: Estado de seguridad normal. Se desplegará el armamento reglamentario.
+
+DEFCON 3 (AMARILLA): Se podrá tener la pistola reglamentaria desenfundada. Podrán cachear a cualquier persona que resulte sospechosa y revisar maleteros.
+
+DEFCON 2 (NARANJA): Desplegar unidades de contención SWAT. Se podrá utilizar chaleco tactico en el patrullaje.
+
+DEFCON 1 (ROJA): Se podrá portar fusil avanzado, uniformados de chaleco táctico y máscara, despegar división SWAT. Si Central lo permite, se podrá disparar a abatir a cualquiera que posea un arma de fuego en mano.
+
+<span class="subtitulo-rosa">LICENCIAS DE CONDUCIR Y DOCUMENTOS</span>
+Al llegar a la ciudad, es obligatorio que toda persona realice su Documento de Identidad en el City Hall. La licencia de conducir únicamente será válida si la persona aprueba tanto el examen teórico como el práctico.
+</div>
+            </details>
+
+            <details>
+                <summary>▶ Robos e Ilegales</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">RECOMENDACIÓN</span>
+En situaciones donde se pueda presentar un acto ilegal, es fundamental contar con una adecuada documentación para respaldar cualquier reporte o acción posterior. Graben todo lo sucedido.
+
+<span class="subtitulo-rosa">USO DE ENTORNO /911</span>
+El entorno es de carácter OBLIGATORIO para todo acto delictivo siempre debe ser enviado antes de iniciar el acto, este debe ser enviado mediante el comando "/911" y debe estar descrito en tercera persona. 
+
+Debe contener las siguientes especificaciones: cantidad de sujetos y su género respectivo, el acto que están realizando, vestimentas, armamento y vehículo.
+
+<span class="subtitulo-rosa">CAMPEO DE ZONAS / FARMEO</span>
+Se considera campeo el estar dentro de una zona y/o alrededores cercanos de un punto de interés ilegal sin estar haciendo uso activo del mismo o con el fin de generar un rol agresivo contra otro jugador.
+
+<span class="subtitulo-rosa">ZONAS SEGURAS</span>
+Las zonas seguras son: Hospital, Garajes: GC - GC Chico - Little seoul parking, Comisaria, Negocios, Tiendas de ropa (Las no robables), tatuajes, barbería.
+
+<span class="subtitulo-rosa">MÁXIMO DE JUGADORES EN ROLES AGRESIVOS/ILÍCITOS</span>
+El máximo de personas para un rol agresivo/ilícito es de 10 como máximo. 
+
+<span class="subtitulo-rosa">PARADAS DE TRÁNSITO</span>
+Una parada de tránsito no podrá terminar en un rol agresivo si el coche no es robado, salvo que se de a la fuga y la situación se ponga conflictiva. La policía solo hará un control rutinario salvo búsqueda y captura o actitud sospechosa.
+
+<span class="subtitulo-rosa">PERSECUCIÓN: Negociaciones y uso de fuerza</span>
+Para romper una negociación (por ejemplo, comenzar a pinchar), deben realizarse 3 advertencias con al menos 3 minutos de diferencia entre cada una, y la persecución debe llevar al menos 5 minutos de duración. Si el atracador abre fuego, las negociaciones se consideran automáticamente rotas.
+
+La LSPD podrá aplicar códigos (Código 100, PIT o pinchar) únicamente si ponen en riesgo la vida de civiles (contramano 200m, vereda, atropellar, giros en U excesivos, plazas, etc).
+
+La policía NO puede cambiar de patrulla por roturas en persecución.
+
+Los ilegales no podrán realizar choques intencionales bajo ningún sentido, el único a considerar es el D-SYNC.
+
+<span class="subtitulo-rosa">PERSECUCIÓN: Pérdida de visual</span>
+Si la LSPD pierde completamente de vista a los sospechosos durante 5 minutos, la persecución se considerará finalizada. 
+
+<span class="subtitulo-rosa">NEGOCIACIÓN</span>
+La misma no puede durar más de 15 minutos o se rompe negociación. 
+
+En las negociaciones se podrá solicitar dependiendo el robo: Salida limpia, Huida limpia, Helicóptero, Interceptor, Motorizadas, Dinero por rehén, Segundos. 
+El armamento NO se negocia.
+
+<span class="subtitulo-rosa">ELEMENTOS DE ROBO</span>
+Todos los elementos de atraco podrán ser incautados por la policía en caso de ser detenidos.
+
+<span class="subtitulo-rosa">COP BAITING</span>
+Tomaremos como Cop Baiting a cualquier acción que inicie un rol contra la policía o llame la atención de la misma sin un motivo que lo pueda fundamentar.
+
+<span class="subtitulo-rosa">DEFENSA PROPIA</span>
+La defensa propia estará justificada siempre y cuando se pueda realizar en el contexto de rol (valoración de vida), exista tenencia de la licencia de armas y uso de /911 con la acción de "Disparando en defensa propia" en el cual tendrá que declararlo en comisaria.
+
+<span class="subtitulo-rosa">INVESTIGACIÓN DE INFORMACIÓN PERSONAL</span>
+Queda terminantemente prohibido roles donde se haga revisión de celulares sin un motivo de peso. También queda prohibido el cachear en búsqueda de documentos a cuerpos abatidos salvo que no hayan valorado la vida. 
+
+<span class="subtitulo-rosa">ROLES SENSIBLES</span>
+En caso de ser víctima de un rol que nos produce aversión por exponer acciones explícitas referidas a torturas o actos sexuales, podremos solicitar a través de mensaje privado (/pm) que el otro usuario efectúe el rol de un modo rápido, obviando todo tipo de detalles. Al solicitar esto no habrá opción a queja o réplica por ninguna de las dos partes.
+
+Será sancionable el insultar sin fundamentos y en exceso a los jugadores.
+
+<span class="subtitulo-rosa">REINICIO DEL SERVIDOR</span>
+No se podrá realizar ningún atraco luego del anuncio de 30 minutos para el reinicio del servidor.
+
+<span class="subtitulo-rosa">VACÍOS LEGALES</span>
+Buscar huecos o vacíos legales está terminantemente prohibido.
+
+<span class="subtitulo-rosa">ARMAS PERMITIDAS EN CIUDAD</span>
+Armas blancas y solamente pistolas NO automáticas. (Excepciones para atracos específicos).
+
+<span class="subtitulo-rosa">ARMAS PERMITIDAS EN EL NORTE</span>
+Armas blancas, Fusil de asalto, SMG, Pistolas automáticas y no automáticas. Si un rol inicia en ciudad y termina en el norte el armamento a utilizar será el de ciudad.
+
+<span class="subtitulo-rosa">ROBOS: CARROCERÍA</span>
+Está prohibido en persecuciones realizar choques de manera intencional a la contraparte repetidas veces. Al querer iniciar un rol agresivo desde un vehículo deberán de realizar una amenaza al otro jugador. 
+El conductor no podrá disparar, solo puede realizar una amenaza apuntando con el vehículo a menos de 20 km/h.
+
+Vehículos al pinchar la segunda rueda deberá detenerse, motos a la primera rueda.
+
+<span class="subtitulo-rosa">ROBO Y SECUESTRO A CIVILES</span>
+Durante el período diurno, únicamente estará permitido que un máximo de dos (2) integrantes realicen actividades de corte. Durante el período nocturno, se habilitará la participación de la totalidad de los miembros.
+
+<span class="subtitulo-rosa">ROBO A CIVIL</span>
+Al querer iniciar un rol agresivo desde un vehículo deberán de realizar una amenaza al otro jugador con la intención de hacer que se baje de su vehículo o se detenga, esta amenaza deberá de ser clara y entendible en todo momento. A la parte amenazada se le dará un tiempo de 30 segundos desde la primer advertencia, máximo 3 advertencias antes que el atacante pueda accionar contra el vehículo (Disparar a la carrocería).
+
+Es necesario utilizar el /911 y al menos 1 policía disponible.
+
+No hurtar ITEMS VIPS, TABLETS, ARTÍCULOS DE EMS/POLICÍA, COMIDA Y BEBIDA. 
+
+<span class="subtitulo-rosa">NORMATIVA DE SECUESTROS</span>
+Si el jugador colabora, no se le podrá realizar un PK al final. En los secuestros no se podrá negociar dinero para liberar a este. 
+
+No se podrá secuestrar a un civil abatido. 
+
+SECUESTRO CIVIL requiere 3 LSPD. 
+
+SECUESTRO OFICIAL requiere 4 LSPD.
+
+<span class="subtitulo-rosa">MISIONES BANDA/MAFIA</span>
+Delincuentes mínimo 1, máximo 10. 1 vehiculo cada 4 personas
+
+Mínimo 1 policía, máximo 10. 1 vehiculo cada 2 personas.
+
+Sin rehenes
+
+Debe ser acorde a la policia disponible.
+
+
+<span class="subtitulo-rosa">ROBO EXPRESS (CABLES / CAJEROS)</span>
+Máximo 1 delincuente, 1 vehiculo máximo.
+
+Mínimo 1 LSPD, máximo 2, 1 vehiculo máximo.
+
+SIN rehenes.
+
+Armas: Pistolas o armas blancas. 
+
+únicamente en este estilo de robo no hay negociaciones.
+
+Pueden retirarse si la policia no llega al finalizar el atraco.
+
+
+<span class="subtitulo-rosa">ROBO CHICO (TIENDAS ROPA / BARBERÍAS)</span>
+Máximo 1 delincuente. 1 vehiculo máximo.
+
+Mínimo 1 LSPD, máximo 2. 2 vehiculos máximo.
+
+Rehenes máximos 2. 
+
+Armas: Pistolas o armas blancas.
+
+Si al cabo de 7 minutos no llega la policía, los atracadores pueden retirarse.
+
+<span class="subtitulo-rosa">ROBOS CHICO AVANZADO (24/7, LICORERIA, LTE)</span>
+Máximo 2 delincuentes, 1 vehiculo máximo.
+
+Mínimo 2 LSPD, máximo 3. 2 vehiculos máximo.
+
+Rehenes máximos 2. 
+
+Armas: Pistolas o armas blancas. 
+
+Si al cabo de 7 minutos no llega la policía, los atracadores pueden retirarse.
+
+<span class="subtitulo-rosa">ROBOS MEDIANOS (FLECCA, ARMERÍA)</span>
+Mínimo 3, Máximo 4 delincuentes. 1 vehiculos máximo.
+
+LSPD mínima 4, máxima 5. 3 vehiculos máximo.
+
+Rehenes máximo 3. 
+
+Armas: Pistolas y pistolas automáticas.
+
+Si al cabo de 15 minutos no llega la policía, los atracadores pueden retirarse.
+
+<span class="subtitulo-rosa">JOYERÍA VANGELICO</span>
+Mínimo 4, máximo 6 delincuentes. 2 vehiculos máximo. 
+
+LSPD mínima 6, máxima 7. 4 vehiculos máximo.
+
+Rehenes máximo 3. 
+
+Armas: SMG, Pistolas.
+
+Si al cabo de 15 minutos no llega la policía, los atracadores pueden retirarse.
+
+<span class="subtitulo-rosa">ROBO AL YATE</span>
+Mínimo 6, máximo 10 delincuentes. 5 vehiculos máximo.
+
+LSPD mínima 10, máxima 12. 6 vehiculos máximo.
+
+SIN rehenes.
+
+Armas: Rifle, SMG, Pistolas.
+
+Al finalizar el robo ambas partes deben respetar el timer de la misión en donde la policia intervendrá de forma agresiva a recuperar el yate.
+
+Si al cabo de 5 minutos adicionales al timer no llega la policía, los atracadores pueden retirarse.
+
+Al ser un robo complicado, la paga es buena y la multa es cara.
+
+Se puede hacer 1 vez por semana por facción.
+
+<span class="subtitulo-rosa">BANCO CENTRAL</span>
+Mínimo 6, máximo 10 delincuentes. 3 vehiculos máximo.
+
+LSPD mínima 10, máxima 12. 6 vehiculos máximo.
+
+Rehenes máximo 4.
+
+Armas: Rifle, SMG, Pistolas. 
+
+El banco central al segundo intento fallido es CK.
+
+Si al cabo de 20 minutos no llega la policía, los atracadores pueden retirarse.
+
+Se puede hacer 1 cada 15 días por facción.
+
+<span class="subtitulo-rosa">REGLAS ATRACOS GENERALES</span>
+Tanto asaltantes como LSPD deben mantener sus vehículos. 
+
+Si el rehén colabora, no ejecutar. 
+
+Los miembros del atraco que escapen con el botín no pueden reincorporarse si no lo traen de vuelta. 
+
+Una vez iniciado, no hay vuelta atrás. Si se dan a la fuga sin el botín es Cop Baiting. 
+
+Los S.W.A.T. pueden intervenir a los 5 minutos si los asaltantes campean resguardándose en sitio cerrado, sin importar las reglas del atraco.
+
+<span class="subtitulo-rosa">ILEGALES Y FACCIONES</span>
+El autor de la postulación será el máximo responsable. Quedan prohibidas facciones de índole terrorista sin previa autorización. 
+
+NÚMERO DE INTEGRANTES BANDA: Inicial 8 (expandible a 12). 
+
+NÚMERO DE INTEGRANTES MAFIA: Inicial 14 (expandible a 20).
+
+La organización debe tener un líder irremplazable. Si muere o se va, la organización se da de baja.
+
+Para abandonar, el líder decide el CK. Salir implica esperar 7 días para otra facción.
+
+<span class="subtitulo-rosa">INVASIÓN A TERRITORIOS Y REDADAS</span>
+Toda invasión de territorio deberá tener un motivo de peso y 5 miembros mínimos. 
+
+La banda atacada puede defender con todos los presentes. 
+
+Cada facción puede hacer 1 invasión cada 4 días. 
+
+En redadas policiales, 10-20m de preparación. No se puede salir del territorio para luego volver. 
+
+<span class="subtitulo-rosa">NORMATIVA DE GUERRAS Y RAIDS</span>
+Deben estar justificadas (no Fail RP). 
+
+Para iniciar guerra: rol previo significativo, declaración explícita IC. Prohibido Spawnkill. 
+
+RAIDS: Motivo válido anunciado IC, respetar horario razonable y defensa activa. No robar bienes sin rol. EMS asiste al finalizar. Policía interviene si ocurre en zonas públicas.</div>
+            </details>
+
+            <details>
+                <summary>▶ LSPD (Policía)</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">NORMATIVAS INTERNAS DE LA LSPD</span>
+"Para proteger y servir". Los agentes velarán por la seguridad e integridad de los ciudadanos.
+1. Prohibido ser corrupto. (Salvo que este autorizado como rol especial)
+
+2. Obedecer órdenes del MANDO.
+
+3. Dejar uniforme y arma al salir de servicio (excepto altos mandos).
+
+4. Usar cinturón de seguridad.
+
+5. No quedarse dinero de multas.
+
+6. Uso de arma letal solo en peligro de vida.
+
+7. Pueden parar vehículos sospechosos.
+
+8. No conducción temeraria, salvo persecución.
+
+9. Dinero negro y armas al almacén de comisaría.
+
+10. Adam y uniones organizadas por Mando.
+
+13. Reportarse en radio táctica.
+
+14. Radio exclusiva para asuntos policiales.
+
+15. Uso de códigos radiales.
+
+16. Prohibido quedarse AFK en comisaría.
+
+17. Leer derechos ANTES de retirar objetos ilegales (no necesario en el camino, si antes de ingresar a comisaría).
+
+18. Esposar contra la pared o patrulla con manos en alto.
+
+19. Arma o tazer en mano antes de subir a patrulla.
+
+20. Hablar con propiedad aunque los insulten.
+
+<span class="subtitulo-rosa">DERECHOS DE UN DETENIDO</span>
+
+- Informado de los hechos.
+
+- No declarar contra sí mismo.
+
+- Abogado privado (si no es delito flagrante).
+
+- Guardar silencio.
+
+- Bebida, comida y sanidad.
+
+- Una llamada en presencia de un agente.
+
+* Si a las 3 veces de leer derechos no los comprende, se dan por entendidos, en este caso el sujeto NO puede pedir "HÁBEAS CORPUS".
+
+<span class="subtitulo-rosa">PROCESADO DE UN DETENIDO</span>
+
+1. Arrestado siempre esposado.
+
+2. Entrar por parte trasera o delantera.
+
+3. Indicar motivos, leer derechos y registrarlo (retirar objetos).
+
+4. Buscar en PDA.
+
+5. Poner multas y condena.
+
+6. Llevar a la celda, debe dar la espalda para quitar esposas.
+
+7. Preguntar si quiere usar derechos.
+
+<span class="subtitulo-rosa">RANGOS DE LA LSPD</span>
+1. Jefe LSPD
+2. Sub-jefe
+3. Capitán
+4. Sargento
+5. Detective
+6. Oficial 
+7. Cadete
+
+<span class="subtitulo-rosa">ARMAS REGLAMENTARIAS</span>
+Taser, Pistola reglamentaria, Porra policial, Linterna táctica, Chaleco Antibalas. Tec-9, Subfusil, Rifle solo en Alerta 4 o en robos habilitados.
+
+<span class="subtitulo-rosa">INTERVENCIÓN EN GUERRAS DE BANDAS</span>
+Podrá intervenir si el conflicto ocurre en zonas públicas o genera disturbios mayores, siendo coherente con el nivel del conflicto.</div>
+            </details>
+
+            <details>
+                <summary>▶ EMS (Médicos)</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">RDE y RDI</span>
+El personal de EMS siempre deberá de tener una postura neutral y respetuosa. 
+
+Es una facción legal, tienen prohibido cometer actos ilícitos o tener antecedentes penales. 
+
+<span class="subtitulo-rosa">CIVILES</span>
+Asumir la consecuencia de las heridas (tiempo y costo). 
+
+El /911ems se emplea para asistencia, redactado en tercera persona, cada 3 minutos máximo para evitar SPAM. 
+
+Prohibido ingresar al Hospital con máscara, armas o artefactos ilegales en mano.
+
+<span class="subtitulo-rosa">SERVICIO MÉDICO</span>
+- Prohibido entrar en servicio para beneficio de amigos.
+
+- Prohibida comercialización de vendas y botiquines a civiles.
+
+- Tratamientos gratuitos a oficiales en servicio.
+
+- Obligatorio usar radio y uniforme correspondiente a su jerarquía.
+
+- RCP de emergencia solo si el hospital está colapsado y hay pulso estable.
+
+- Anunciar al finalizar el servicio si son los últimos.
+
+- Prohibido quedarse "AFK" en servicio.
+
+<span class="subtitulo-rosa">ESPECIALIZACIONES MÉDICAS</span>
+Psicólogo, neurólogo, radiólogo, traumatólogo. 
+
+No reemplazan la función principal (emergencias tienen prioridad). 
+
+Pueden emitir aptos y certificados siempre con rol. 
+
+Prohibido abusar para beneficio propio.
+
+<span class="subtitulo-rosa">NORMATIVA LLAMADOS</span>
+- Obligatorio licencia de conducir.
+
+- Vehículos no dejar los abandonados, se tienen que guardar al final del servicio.
+
+- No llevar civiles en ambulancia, salvo paciente abatido hacia la clínica o conocido del abatido.
+
+- Procedimientos complejos (balas, fracturas) solo en el hospital.
+
+- En alerta roja no se hacen salidas salvo llamado policial.
+
+<span class="subtitulo-rosa">INTERVENCIÓN EN GUERRAS O RAIDS</span>
+EMS podrá asistir una vez finalizado el conflicto o cuando la zona sea segura. 
+
+No podrá ser atacado salvo justificación extrema.
+
+Ejemplo: Ingreso y aún no finalizó el raid.
+
+<span class="subtitulo-rosa">SISTEMA DE SANCIONES</span>
+Advertencias, Strikes (al 3er strike desvinculación) y Blacklist para faltas graves.</div>
+            </details>
+
+            <details>
+                <summary>▶ Tiendas y Locales Comerciales</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">CATEGORÍA: CLIENTE / CONSUMIDOR</span>
+- RESPETO AL RDI: Respetar su rol, no otorga derecho a faltar el respeto sin motivo.
+
+- ROLES DE ESTAFA Y AGRESIVOS: Estrictamente PROHIBIDO llevar a cabo roles de estafa en locales.
+
+- CONFUSIÓN DE VIDAS: Prohibido mezclar vida IC para descuentos por ser amigos.
+
+- CRÍTICAS A OTROS LOCALES: Prohibido denigrar locales por desagrado OOC.
+
+- OFERTA DE DINERO: Prohibido ofrecer dinero OOC/IC para adquirir un local (no se venden entre jugadores).
+
+- MALTRATO A TRABAJADORES: PROHIBIDO maltratar a empleados con comentarios sexuales, racistas, etc. 
+
+- INFORMACIÓN PRIVADA: Prohibido solicitar redes, OOC o número IC obligado.
+
+<span class="subtitulo-rosa">CATEGORÍA: EMPLEADO</span>
+- RESPETO A CLIENTES: Mantener respeto y pedir ayuda a guardias si el cliente ofende.
+
+- UNIFORME Y DELITOS: Si participa en actos ilícitos, no puede usar el uniforme ni vehículos del local.
+
+- ANUNCIOS: De apertura cada 30 min / de oferta cada 10 minutos / por Discord 2 al día.
+
+- SERVICIO AFK: Prohibido quedarse AFK para farmear horas.
+
+<span class="subtitulo-rosa">CATEGORÍA: JEFATURA</span>
+- GESTIÓN DEL LOCAL: El STAFF no se responsabiliza por insolvencia.
+
+- CONFLICTOS INTERNOS: Resolverlos internamente, si afectan el local se arriesga a perderlo.
+
+- ACTOS DELICTIVOS: Si se vincula con actos ilícitos, el FIB o bandas pueden desmantelar su local.
+
+- PAGOS: Las mensualidades deben pagarse puntual.
+
+- ACTIVIDAD DEL LOCAL: Se exige actividad diaria. Inactivo por 2 semanas sin aviso será RETIRADO.
+
+- FONDOS DEL LOCAL: Locales legales no pueden retirar fondos para fines delictivos.
+
+- SITUACIÓN DE CK: El usuario deberá pagar una multa OOC de 5 USD y clausura de 2 días.
+
+- USO DE ARMAS: El taser es opcional mediante convenio con LSPD y licencia de armas. No debe salir del perímetro ni usarse fuera de servicio.</div>
+            </details>
+
+            <details>
+                <summary>▶ Streamers</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">BIENVENIDOS STREAMERS</span>
+Desde el staff de Black Nightmare Roleplay, estamos agradecidos por que creen contenido de nuestro servidor.
+
+<span class="subtitulo-rosa">NORMATIVAS GENERALES</span>
+- TÍTULO DEL STREAM Y VOD: Es obligatorio el uso del nombre del servidor (#BNRP #BlackNightmareRP) y dejar el VOD público.
+
+- USO DE IMAGEN: Está autorizado el uso del logo de BN.
+
+- COMPORTAMIENTO PROFESIONAL: Respeto dentro y fuera del juego. No acoso.
+
+- PRIVACIDAD: Proteger la privacidad de los jugadores (no revelar ubicaciones ni datos).
+
+- EVITAR EL METAGAMING (MG): Prohibido usar el chat de Twitch o info externa para ganar ventaja.
+
+- TRANSPARENCIA Y HONESTIDAD: Promover una imagen positiva y colaborar con la administración.
+
+<span class="subtitulo-rosa">REGLAS TÉCNICAS</span>
+- SIN CHEATS NI HACKS: Juego limpio (como todo usuario).
+
+- CALIDAD DEL STREAM: Que no afecte el servidor ni a otros jugadores.
+
+<span class="subtitulo-rosa">STREAMER STAFF</span>
+- MANEJO DE SOPORTE: Cuando un miembro del staff se encuentre en stream, va a poder moderar (transmitir su rol de admin IC) siempre y cuando pida permiso, el uso de poderes inadecuado en cualquier situación será sancionada.
+
+<span class="subtitulo-rosa">CONSECUENCIAS</span>
+Sanciones que van desde advertencias hasta baneo. Si hay inactividad mayor a una semana sin notificar, será removido de sus roles.</div>
+            </details>
+
+            <details>
+                <summary>▶ Donaciones</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">ACEPTACIÓN DE TÉRMINOS</span>
+Al realizar una donación al servidor BLACK NIGHTMARE, aceptas automáticamente los términos y condiciones.
+
+<span class="subtitulo-rosa">DONACIONES Y FINALIDAD</span>
+Tienen como objetivo respaldar los gastos de mantenimiento y desarrollo. 
+No confieren derechos de propiedad o influencia administrativa.
+
+<span class="subtitulo-rosa">NO HAY DEVOLUCIONES</span>
+Todas las donaciones realizadas son finales y no reembolsables.
+
+<span class="subtitulo-rosa">USO ADECUADO DEL SERVIDOR</span>
+Las donaciones no eximen de cumplir con todas las reglas y directrices. 
+
+El incumplimiento resulta en sanciones o expulsión.
+
+<span class="subtitulo-rosa">CUANDO SE REALIZA UN CK</span>
+Cuando se da una situación de CK no se devuelven los productos adquiridos, ya que el CK es a conciencia. 
+
+Se puede obtener nuevamente pagando costo: Casa 8 USD, Local 5 USD, Autos 2 USD (+ taxes).
+
+<span class="subtitulo-rosa">NORMATIVA DE PROPIEDADES</span>
+1- Las ventas, cambios o entregas de casas se tendrán que hacer con algún miembro de STAFF presente. 
+
+2- Queda estrictamente PROHIBIDA la venta de casas entre usuarios con dinero OOC.
+
+3- Los días de ventas entre usuarios con dinero IC se podrán realizar con un STAFF presente mediante ticket.
+
+4- Los cambios de interiores se pueden realizar una sola vez.
+
+5- Puedes adquirir un departamento únicamente por VIP's o SORTEO.
+
+6- Las propiedades VIP no se podrán entregar a terceros a menos que estén de acuerdo.
+
+7- Las casas de barrio alto se adquieren únicamente mediante Donación u VIP's.
+
+8- Luego de un CK las propiedades adquiridas mediante dinero IC se eliminan.
+
+9- El máximo de propiedades con dinero IC es 1.
+
+10- Las pérdidas de inventario pueden ser reclamadas con pruebas correspondientes.</div>
+            </details>
+
+            <details>
+                <summary>▶ Staff</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">PROFESIONALISMO Y CONDUCTA</span>
+- COMPORTAMIENTO: Conducta profesional siempre. Prohibido insultar usuarios (conlleva baneo).
+
+- CONFIDENCIALIDAD: Resoluciones y tickets son privados.
+
+- DISPONIBILIDAD Y APOYO: Estar activos para ayudar a los usuarios.
+
+- USO DE PEDS: Prohibido usar peds adquiridos por usuarios VIP.
+
+- REGALOS: Prohibido regalar ítems o armas a usuarios sin justificación y autorización.
+
+- DEVOLUCIONES: Usar almacén designado temporalmente si administración no está disponible.
+
+<span class="subtitulo-rosa">APLICACIÓN DE NORMAS</span>
+- IMPARCIALIDAD: Prohibición de responder tickets relacionados con facciones del propio staff (entorno propio). Sanciones deben ser justas y equitativas.
+
+<span class="subtitulo-rosa">USO DE HERRAMIENTAS</span>
+- PROHIBICIÓN DE ABUSO: El uso del menú staff/TX debe ser limitado. Prohibido usar para ventajas personales o afectar el RP de otros.
+
+<span class="subtitulo-rosa">ROLES CLAROS PARA LA COMUNIDAD</span>
+- Owner / Co-owner: Acceso y poderes plenos para ayuda.
+
+- Moderador: Cotejar normativas IC y prevenir.
+
+- Staff: Reportes IC, soporte y tickets.
+
+- Soporte: Atiende soporte y tickets.
+
+- Soporte de facción: Solo poder de mensaje directo para evitar abusos.
+
+- Soporte a prueba: Sin poderes, atiende tickets.
+
+ANTE EL PRIMER ABUSO SE SANCIONARÁ A LA PERSONA CORRESPONDIENTE DEL STAFF.</div>
+            </details>
+
+            <details>
+                <summary>▶ Discord</summary>
+                <div class="normativa-texto"><span class="subtitulo-rosa">Respeto y Comportamiento</span>
+Se espera máximo respeto. No se tolerarán actitudes tóxicas, insultos o indirectas en canales públicos.
+
+<span class="subtitulo-rosa">Tickets y Comunicación con el Staff</span>
+Para solicitar asistencia, utilizar el sistema de tickets (completando campos o será eliminado). 
+
+No enviar mensajes privados al staff ni mencionarlos públicamente para resolver problemas. 
+
+Todos los reportes o devoluciones IC deben contener pruebas gráficas (videos o imágenes sin excepción).
+
+<span class="subtitulo-rosa">Contenido Inapropiado</span>
+Prohibido contenido pornográfico, violento u ofensivo.
+
+<span class="subtitulo-rosa">Confidencialidad</span>
+Las resoluciones de tickets son confidenciales. 
+
+Prohibido divulgar grabaciones no autorizadas.
+
+<span class="subtitulo-rosa">Spam</span>
+Prohibido hacer spam o promocionar otras comunidades/servidores.
+
+<span class="subtitulo-rosa">Respeto Hacia los Staff</span>
+Los insultos reiterados al staff derivarán en muteos permanentes o sanciones severas.
+
+<span class="subtitulo-rosa">Grabaciones de Soporte</span>
+Está prohibido grabar conversaciones de soporte sin el consentimiento de todas las partes.</div>
+            </details>
+        </section>
+
+        <section id="whitelist" class="tab-content">
+            <h2>🔒 PORTAL DE WHITELIST</h2>
+            
+            <div class="inicio-info">
+                <p style="color: #ccc;">
+                    ¡Da el primer paso para formar parte de las facciones oficiales de la ciudad! 🏙️<br>
+                    Toca el botón <b>WHITELIST</b> para ir directo a nuestro Discord y abrir tu ticket de postulación. 🚀
+                </p>
+
+                <p style="color: #ccc; font-size: 1.05rem;">
+                    Actualmente podés realizar la whitelist para:<br><br>
+                    🚓 <b>LSPD</b> (Policía) &nbsp;|&nbsp; 🚑 <b>EMS</b> (Médicos) &nbsp;|&nbsp; 🔫 <b>BANDAS Y MAFIAS</b>
+                </p>
+                
+                <div class="whitelist-grid">
+                    <a href="TU_LINK_DEL_CANAL_DE_DISCORD_AQUI" class="btn-neon">HACER WHITELIST</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="donaciones" class="tab-content">
+            <h2>🛒 TIENDA OFICIAL</h2>
+            
+            <div class="inicio-info">
+                <p>
+                    Apoya el crecimiento de <strong>Black Nightmare RP</strong> y obtén beneficios exclusivos en la ciudad. 💎<br>
+                    Todas las entregas son 100% automáticas a través de Tebex. ¡Asegúrate de estar conectado en la ciudad con tu personaje!
+                </p>
+
+                <nav class="sub-tab-nav">
+                    <button class="sub-tab-btn active" onclick="openSubTab('cat-autos-low', this)">🚗 Autos Low</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-autos-mid', this)">🚙 Autos Mid</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-autos-high', this)">🏎️ Autos High</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-motos', this)">🏍️ Motos</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-aereos', this)">🚁 Aéreos</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-locales', this)">🏪 Locales</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-casas', this)">🏠 Casas</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-deptos', this)">🏢 Deptos</button>
+                    <button class="sub-tab-btn premium" onclick="openSubTab('cat-vips', this)">💎 VIPs</button>
+                    <button class="sub-tab-btn premium" onclick="openSubTab('cat-mafias', this)">🕴️ Mafias</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('cat-slot', this)">👤 2do Slot</button>
+                </nav>
+
+                <div id="cat-autos-low" class="sub-tab-content active">
+                    <div class="tienda-grid">
+                        
+                        <div class="producto-card">
+                            <img src="https://media.discordapp.net/attachments/1295129205725462640/1354648951239741440/nissan_sentra_gcmsentra20.png?ex=69d71426&is=69d5c2a6&hm=90a926bd334ae2909af2e2b826e353d75c00c4b2e5699a30d4c2507ba4570b44&=&format=webp&quality=lossless" alt="Auto Low Cost" class="producto-img">
+                            <h3>NISSA SENTRA</h3>
+                            <p class="producto-desc">Vehículo económico ideal para empezar tu aventura en la ciudad.</p>
+                            <span class="producto-precio">$10.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                        
+                        <div class="producto-card">
+                            <img src="https://media.discordapp.net/attachments/1295129205725462640/1354648989797974190/Volkswagen_vento_2021jettasel.png?ex=69d7142f&is=69d5c2af&hm=dd00f1c44c56b6d220369d8d0794e65b9e291f993eb97cbe9c18af46f1d1f6bd&=&format=webp&quality=lossless" alt="Auto Low Cost" class="producto-img">
+                            <h3>Auto Low Cost 2</h3>
+                            <p class="producto-desc">Vehículo económico ideal para empezar tu aventura en la ciudad.</p>
+                            <span class="producto-precio">$12.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                        
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Auto Low Cost" class="producto-img">
+                            <h3>Auto Low Cost 3</h3>
+                            <p class="producto-desc">Vehículo económico ideal para empezar tu aventura en la ciudad.</p>
+                            <span class="producto-precio">$5.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="cat-autos-mid" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Auto Mid Cost" class="producto-img">
+                            <h3>Auto Mid Cost</h3>
+                            <p class="producto-desc">El equilibrio perfecto entre velocidad y estilo para dominar las calles.</p>
+                            <span class="producto-precio">$10.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-autos-high" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Auto High Cost" class="producto-img">
+                            <h3>Auto High Cost</h3>
+                            <p class="producto-desc">Deportivos de lujo y exóticos. Solo para los más exclusivos de Los Santos.</p>
+                            <span class="producto-precio">$25.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-motos" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Moto" class="producto-img">
+                            <h3>Motocicleta</h3>
+                            <p class="producto-desc">Sentí la adrenalina y escapá del tráfico con las mejores motos de la ciudad.</p>
+                            <span class="producto-precio">$8.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-aereos" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Aéreo" class="producto-img">
+                            <h3>Helicóptero</h3>
+                            <p class="producto-desc">Dominá los cielos de Los Santos. Incluye acceso a helipuertos exclusivos.</p>
+                            <span class="producto-precio">$35.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-locales" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Local Comercial" class="producto-img">
+                            <h3>Local Comercial</h3>
+                            <p class="producto-desc">Emprendé tu propio negocio. Incluye sistema de facturación y empleados.</p>
+                            <span class="producto-precio">$20.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-casas" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Casa" class="producto-img">
+                            <h3>Casa Privada</h3>
+                            <p class="producto-desc">Tu propio refugio con garage, armario seguro y opciones de personalización.</p>
+                            <span class="producto-precio">$15.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-deptos" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Departamento" class="producto-img">
+                            <h3>Departamento de Lujo</h3>
+                            <p class="producto-desc">Vistas increíbles en el centro de la ciudad. El mejor estilo de vida.</p>
+                            <span class="producto-precio">$25.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-vips" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card card-premium">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="VIP" class="producto-img">
+                            <h3>Membresía VIP</h3>
+                            <p class="producto-desc">Prioridad de conexión, sueldo extra y vehículos exclusivos del concesionario VIP.</p>
+                            <span class="producto-precio">$15.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-mafias" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card card-premium">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Mafia Oficial" class="producto-img">
+                            <h3>Proyecto de Mafia</h3>
+                            <p class="producto-desc">Mapeo exclusivo, menú de jefe, lavado de dinero y acceso a armamento pesado.</p>
+                            <span class="producto-precio">$50.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cat-slot" class="sub-tab-content">
+                    <div class="tienda-grid">
+                        <div class="producto-card">
+                            <img src="https://i.imgur.com/HSHNEaU.jpg" alt="Segundo Slot" class="producto-img">
+                            <h3>Segundo Slot de PJ</h3>
+                            <p class="producto-desc">Desbloquea la posibilidad de crear una segunda historia en la ciudad.</p>
+                            <span class="producto-precio">$10.00 USD</span>
+                            <a href="LINK_TEBEX" class="btn-neon btn-blue">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Función para las pestañas principales
+        function openTab(tabId, element) {
+            const tabContents = document.querySelectorAll('.tab-content:not(.sub-tab-content)');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            element.classList.add('active');
+        }
+
+        // Función nueva para las sub-pestañas de la tienda
+        function openSubTab(subTabId, element) {
+            const subTabContents = document.querySelectorAll('.sub-tab-content');
+            subTabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const subTabBtns = document.querySelectorAll('.sub-tab-btn');
+            subTabBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(subTabId).classList.add('active');
+            element.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
